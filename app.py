@@ -4,9 +4,9 @@ import pymysql
 import os
 
 app = Flask(__name__)
-app.secret_key = 'secreto123'  # Use algo seguro em produção
+app.secret_key = 'secreto123'
 
-# Configurações do banco via variáveis de ambiente do Railway
+# Configurações do banco (Railway)
 db_config = {
     'host': os.getenv("MYSQLHOST"),
     'user': os.getenv("MYSQLUSER"),
@@ -56,4 +56,4 @@ def logout():
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
